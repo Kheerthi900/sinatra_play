@@ -1,0 +1,23 @@
+- 
+  url: '/'
+  action: 'get'
+  api_class: 'Hello'
+  api_method: 'greetings'
+
+- 
+  url: '/curse'
+  action: 'post'
+  api_class: 'Hello'
+  api_method: 'curse'
+
+-
+  url: '%r{/service/(?<tl_category>[A-Za-z_]+)/(?<tl_version>[A-Za-z0-9\.]+)/(?<tl_svc>[A-Za-z0-9]+)/(?<tl_acct>[A-Za-z0-9\-\w]+)/?(?<tl_param>[a-zA-Z=&]*)/?}'
+  action: 'get'
+  api_class: 'PublicApi'
+  api_method: 'process_get'
+
+-
+  url: '%r{/service/(?<tl_category>[A-Za-z_]+)/(?<tl_version>[A-Za-z0-9\.]+)/(?<tl_svc>[A-Za-z0-9]+)/(?<tl_acct>[A-Za-z0-9\-\w]+)/?(?<tl_param>[a-zA-Z=&]*)/?}'
+  action: 'post'
+  api_class: 'PublicApi'
+  api_method: 'process_post'
