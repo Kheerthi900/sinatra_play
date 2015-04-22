@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'config_service'
+require_relative 'conf/html_statuses'
 
 Dir.entries('.').select { |x| File.directory?(x)  && x != '.' && x != '..'  && x != 'spec' }.each  do |sub_path|
   rb_files =  Dir.glob("#{File.expand_path('.')}/#{sub_path}/*.rb")
@@ -18,7 +19,9 @@ class SinatraPlay < Sinatra::Base
     puts "route = #{"#{route['action']} #{route_url}"}"
 
     eval("#{route['action']} #{route_url} do 
-      #{route['api_class']} .new.send( '#{route['api_method']}', request, params) 
+      response = #{route['api_class']} .new.send( '#{route['api_method']}', request, params)
+      status(response[:status])
+      response.to_json
     end ") 
   end  
 end

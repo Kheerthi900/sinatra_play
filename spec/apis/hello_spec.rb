@@ -18,7 +18,14 @@ describe SinatraPlay do
       # json['status'].must_equal 200
       # json['message'].must_equal 'Batman, you are stupid!'
       last_response.ok?.must_equal true
-      last_response.body.must_equal '{"status":200,"message":"Batman, you are stupid!"}'
+      ActiveSupport::JSON.decode(last_response.body).must_equal({ 'status' => 200, 'message' => 'Batman, you are stupid!' })
+    end
+
+    it 'returns Unprocessable Entity if name is empty' do 
+      post('/curse', {}.to_json, {'CONTENT_TYPE' => 'application/json' })
+      last_response.ok?.must_equal false
+      last_response.status.must_equal HTML_CODES['Unprocessable Entity']
+      ActiveSupport::JSON.decode(last_response.body).must_equal({ 'status' => 422, 'message' => 'Name cannot be blank.' })
     end
   end
 
