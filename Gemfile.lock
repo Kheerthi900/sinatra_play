@@ -121,3 +121,6 @@ DEPENDENCIES
   puma
   rack-test
   sinatra
+
+BUNDLED WITH
+   1.10.3

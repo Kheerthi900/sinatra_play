@@ -17,6 +17,7 @@ describe SinatraPlay do
       # then use the json code below
       # json['status'].must_equal 200
       # json['message'].must_equal 'Batman, you are stupid!'
+      raise 'Some Error to test jenkins'
       last_response.ok?.must_equal true
       ActiveSupport::JSON.decode(last_response.body).must_equal({ 'status' => 200, 'message' => 'Batman, you are stupid!' })
     end
