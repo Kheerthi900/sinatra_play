@@ -1,6 +1,7 @@
 class Hello
   def greetings(request, params)
     puts "params = #{params.inspect}\nrequest = #{request.inspect}\n"
+    ap request.env
 
     { status: 200, message: 'Hello, World!' }
   end
@@ -11,7 +12,7 @@ class Hello
       return { status: HTML_CODES['Unprocessable Entity'], message: 'Name cannot be blank.' }
     end
 
-    puts(data.inspect)
+    ap data
     name = data['name']
     { status: 200, message: "#{name}, you are stupid!" }
    

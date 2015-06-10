@@ -20,3 +20,6 @@ group :development, :test do
 end
 
 gem 'puma'
+gem 'awesome_print'
+gem 'faraday'
+gem 'ruby_l10n'

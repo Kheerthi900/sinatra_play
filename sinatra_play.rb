@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'config_service'
+require 'awesome_print'
 require_relative 'config/html_statuses'
 
 Dir.entries('.').select { |x| File.directory?(x)  && x != '.' && x != '..'  && x != 'spec' }.each  do |sub_path|
