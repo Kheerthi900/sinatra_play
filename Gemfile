@@ -6,6 +6,7 @@ gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-scm-copy'
 gem 'capistrano-rvm'
+gem 'capistrano3-puma'
 gem 'config_service'
 
 group :development, :test do

@@ -1,0 +1,54 @@
+development:
+  ssh_keys:
+    - '~/.ssh/id_rsa'
+  roles:
+    app:
+      - 'nobody@localhost'
+    db:
+      #run rake db:migrate on 1 host is enough, in case all the app hosts point to the same db
+      - 'nobody@localhost'
+
+  application: 'sinatra_play'
+  repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
+  branch: 'master'
+  rvm_bin_path: '/usr/local/rvm/bin'
+  deploy_user: 'root'
+  deploy_to_dir: '/root/deployments/sinatra_play'
+  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
+
+# When you deploy production, please replace all the servers under roles correctly
+production:
+  ssh_keys:
+    - '~/.ssh/id_rsa'
+  roles:
+    - app:
+      - 'nobody@localhost'
+    - db:
+      #run rake db:migrate on 1 host is enough, in case all the app hosts point to the same db
+      - 'nobody@localhost'
+
+  application: 'sinatra_play'
+  repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
+  branch: 'master'
+  rvm_bin_path: '/usr/local/rvm/bin'
+  deploy_user: 'root'
+  deploy_to_dir: '/root/deployments/sinatra_play'
+  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
+
+stage:
+  ssh_keys:
+    - '~/.ssh/id_rsa'
+  roles:
+    - app:
+      - 'nobody@localhost'
+    - db:
+      #run rake db:migrate on 1 host is enough, in case all the app hosts point to the same db
+      - 'nobody@localhost'
+
+  application: 'sinatra_play'
+  repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
+  branch: 'master'
+  rvm_bin_path: '/usr/local/rvm/bin'
+  deploy_user: 'root'
+  deploy_to_dir: '/root/deployments/sinatra_play'
+  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
