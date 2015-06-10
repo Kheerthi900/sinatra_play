@@ -20,6 +20,8 @@ set :rack_env, DEPLOY_ENV
 set :stage, DEPLOY_ENV
 
 deploy_to_hosts = []
+puts "ENV['targets'] ="
+puts(ENV['targets'].to_s.strip)
 if (ENV['targets'].to_s.strip != '')
   # targets is {"app"=>["nobody@localhost"], "db"=>["nobody@localhost"]}.to_json
   targets = ActiveSupport::JSON.decode(ENV['targets'])
