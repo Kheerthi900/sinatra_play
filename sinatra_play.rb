@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'config_service'
-require_relative 'conf/html_statuses'
+require_relative 'config/html_statuses'
 
 Dir.entries('.').select { |x| File.directory?(x)  && x != '.' && x != '..'  && x != 'spec' }.each  do |sub_path|
   rb_files =  Dir.glob("#{File.expand_path('.')}/#{sub_path}/*.rb")
