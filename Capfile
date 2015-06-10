@@ -25,10 +25,12 @@ puts(ENV['targets'].to_s.strip)
 if (ENV['targets'].to_s.strip != '')
   # targets is {"app"=>["nobody@localhost"], "db"=>["nobody@localhost"]}.to_json
   targets = ActiveSupport::JSON.decode(ENV['targets'])
+  puts "Come here if"
   puts targets.inspect
 
 else
   targets = DEPLOY_CONFIG[DEPLOY_ENV]['roles']
+  puts "Come here else"
   puts targets.inspect
 end
 
