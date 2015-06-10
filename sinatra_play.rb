@@ -1,11 +1,12 @@
 require 'sinatra'
 require 'config_service'
 require 'awesome_print'
+
 require_relative 'config/html_statuses'
 
 Dir.entries('.').select { |x| File.directory?(x)  && x != '.' && x != '..'  && x != 'spec' }.each  do |sub_path|
   rb_files =  Dir.glob("#{File.expand_path('.')}/#{sub_path}/*.rb")
-  rb_files.each { |rb_file| require rb_file }
+  rb_files.each { |rb_file| require rb_file unless rb_file =~ /deploy/ || rb_file =~ /puma.rb/ }
 end
 
 class SinatraPlay < Sinatra::Base
