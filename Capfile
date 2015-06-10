@@ -1,7 +1,7 @@
 require 'config_service'
 require 'active_support/json'
 DEPLOY_CONFIG = ConfigService.load_config('deploy/deploy_config.yml')
-DEPLOY_ENV =  ARGV[0]
+DEPLOY_ENV =  ENV['cap_env'] || ARGV[0]
 
 DEPLOY_SSH_KEYS     = DEPLOY_CONFIG[DEPLOY_ENV]['ssh_keys']
 DEPLOY_APPLICATION  = DEPLOY_CONFIG[DEPLOY_ENV]['application']
