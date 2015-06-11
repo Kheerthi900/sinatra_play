@@ -12,9 +12,9 @@ development:
   repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
   branch: 'master'
   rvm_bin_path: '/usr/local/rvm/bin'
-  deploy_user: 'root'
-  deploy_to_dir: '/root/deployments/sinatra_play'
-  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
+  deploy_user: 'ec2-user'
+  deploy_to_dir: '/home/ec2-user/deployments/sinatra_play'
+  bundle_gem_file: '/home/ec2-user/deployments/sinatra_play/current/Gemfile'
 
 # When you deploy production, please replace all the servers under roles correctly
 production:
@@ -31,9 +31,9 @@ production:
   repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
   branch: 'master'
   rvm_bin_path: '/usr/local/rvm/bin'
-  deploy_user: 'root'
-  deploy_to_dir: '/root/deployments/sinatra_play'
-  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
+  deploy_user: 'ec2-user'
+  deploy_to_dir: '/home/ec2-user/deployments/sinatra_play'
+  bundle_gem_file: '/home/ec2-user/deployments/sinatra_play/current/Gemfile'
 
 stage:
   ssh_keys:
@@ -49,6 +49,6 @@ stage:
   repo_url: 'https://github.com/linhchauatl/sinatra_play.git'
   branch: 'master'
   rvm_bin_path: '/usr/local/rvm/bin'
-  deploy_user: 'root'
-  deploy_to_dir: '/root/deployments/sinatra_play'
-  bundle_gem_file: '/root/deployments/sinatra_play/current/Gemfile'
+  deploy_user: 'ec2-user'
+  deploy_to_dir: '/home/ec2-user/deployments/sinatra_play'
+  bundle_gem_file: '/home/ec2-user/deployments/sinatra_play/current/Gemfile'
