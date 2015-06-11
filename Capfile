@@ -22,7 +22,12 @@ set :stage, DEPLOY_ENV
 deploy_to_hosts = []
 if (ENV['targets'].to_s.strip != '')
   # targets is {"app"=>["nobody@localhost"], "db"=>["nobody@localhost"]}.to_json
-  targets = ActiveSupport::JSON.decode(ENV['targets'])
+  begin
+    targets = ActiveSupport::JSON.decode(ENV['targets'])
+  rescue => exc
+    puts "ERROR parsing targets #{ENV['targets'].inspect}: #{exc.message}"
+    exit
+  end
 else
   targets = DEPLOY_CONFIG[DEPLOY_ENV]['roles']
 end
